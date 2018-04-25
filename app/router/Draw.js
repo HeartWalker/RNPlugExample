@@ -16,6 +16,7 @@ const RootDrawer = DrawerNavigator({
         screen: Tab,
     },
 
+
 });
 
 export default RootDrawer;

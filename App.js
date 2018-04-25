@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 
-import Router from './app/router/Draw';
+import Router from './app/router/Router';
 type Props = {};
 export default class App extends Component<Props> {
   render() {

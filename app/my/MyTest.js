@@ -12,7 +12,7 @@ export default class MyTest extends Component<Props> {
     render() {
         return (
             <View>
-                <Text>MyTest</Text>
+                <Text>{'Stack'}</Text>
             </View>
         );
     }

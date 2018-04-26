@@ -12,12 +12,12 @@ let num = 0;
 
 export default class Test extends Component<Props> {
     componentWillUnmount(){
-        num--;
+        //num--;
     }
     render() {
         return (
             <View>
-                <TouchableOpacity onPress={()=>this.props.navigation.navigate('Test')}>
+                <TouchableOpacity onPress={()=>this.props.navigation.navigate('Test',{},{type:"Test"})}>
                     <Text>{num = num +1}</Text>
                 </TouchableOpacity>
             </View>

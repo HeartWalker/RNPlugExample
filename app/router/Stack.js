@@ -11,10 +11,11 @@ import {
     View
 } from 'react-native';
 
-import {StackNavigator} from 'react-navigation';
+import {StackNavigator,NavigationActions } from 'react-navigation';
+
 import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
 
-import Draw from './Draw';
+import Draw from './draw/Draw';
 import Test from '../components/Test';
 import MyTest from '../my/MyTest';
 
@@ -42,21 +43,52 @@ const Stack = StackNavigator(
         })
     },
 );
+console.log(1)
+const defaultGetStateForAction = Stack.router.getStateForAction;
 
-Stack.router = {
-    ...Stack.router, getStateForAction(action, state) {
-        console.log(action)
-        console.log(state)
-        if (state && action.type === 'PushTwoProfiles') {
-            const routes = [...state.routes, {key: 'A', routeName: 'Profile', params: {name: action.name1}}, {
-                key: 'B',
-                routeName: 'Profile',
-                params: {name: action.name2}
-            },];
-            return {...state, routes, index: routes.length - 1,};
-        }
-        return Stack.router.getStateForAction(action, state);
-    },
+Stack.router.getStateForAction = (action, state) => {
+   /* if (state && action.type === 'PushTwoProfiles') {
+        const routes = [
+            ...state.routes,
+            {key: 'A', routeName: 'MyTest', params: { name: action.name1 }},
+            {key: 'B', routeName: 'MyTest', params: { name: action.name2 }},
+        ];
+        return {
+            ...state,
+            routes,
+            index: routes.length - 1,
+        };
+    }*/
+
+    if (state && state.index > 3) {
+        const routes = [
+            state.routes[0],
+
+            ...(state.routes.slice(-2))
+
+        ];
+
+        return {
+            ...state,
+            routes,
+            index: routes.length - 1,
+        };
+    }
+  /*  if (state && state.index > 3) {
+        const routes = [
+            state.routes[0],
+
+            ...(state.routes.slice(-2,-1))
+
+        ];
+
+        state.routes = routes;
+        state.index = routes.length -1;
+        return null;
+
+    }*/
+
+
+    return defaultGetStateForAction(action, state);
 };
-
 export default Stack;

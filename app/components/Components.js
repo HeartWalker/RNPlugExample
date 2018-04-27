@@ -14,7 +14,7 @@ export default class Components extends Component<Props> {
         return (
             <View>
                 <Text>component</Text>
-                <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Test')}}>
+                <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Plug')}}>
                     <Text>go to test</Text>
                 </TouchableOpacity>
             </View>

@@ -12,7 +12,9 @@ import {
     View
 } from 'react-native';
 
-import { TabNavigator, TabBarBottom } from 'react-navigation';
+import { TabNavigator, TabBarBottom ,StackNavigator} from 'react-navigation';
+
+import NavigationService from './NavigationService';//获得顶级路由----------------------
 
 import Components from '../components/Components';
 import My from '../my/My';
@@ -27,7 +29,7 @@ function Icon(props) {
     )
 }
 
-export default TabNavigator(
+const Taber =  TabNavigator(
     {
         Component: {
             screen: Components,
@@ -90,3 +92,13 @@ export default TabNavigator(
 
 }
 )
+
+export default class Tab extends Component {
+    render(){
+        return (
+            <Taber    ref={navigatorRef => {
+          NavigationService.setTopLevelNavigator(navigatorRef);
+        }}/>
+        )
+    }
+}

@@ -46,21 +46,27 @@ const Stack = StackNavigator(
 console.log(1)
 const defaultGetStateForAction = Stack.router.getStateForAction;
 
+let flag = true;
 Stack.router.getStateForAction = (action, state) => {
-   /* if (state && action.type === 'PushTwoProfiles') {
+  /*  if (state && state.index > 3 && action.type === 'Navigation/NAVIGATE') {
         const routes = [
-            ...state.routes,
-            {key: 'A', routeName: 'MyTest', params: { name: action.name1 }},
-            {key: 'B', routeName: 'MyTest', params: { name: action.name2 }},
+            state.routes[0],
+
+            ...(state.routes.slice(-2))
+
         ];
+        console.log('1111')
+        state.routes = routes
+        state.routes.index = routes.length - 1
         return {
             ...state,
             routes,
             index: routes.length - 1,
         };
+
     }*/
 
-    if (state && state.index > 3) {
+ /*   if (state && state.index > 3) {
         const routes = [
             state.routes[0],
 
@@ -73,7 +79,7 @@ Stack.router.getStateForAction = (action, state) => {
             routes,
             index: routes.length - 1,
         };
-    }
+    }*/
   /*  if (state && state.index > 3) {
         const routes = [
             state.routes[0],
@@ -88,7 +94,7 @@ Stack.router.getStateForAction = (action, state) => {
 
     }*/
 
-
+    console.log('1111')
     return defaultGetStateForAction(action, state);
 };
 export default Stack;

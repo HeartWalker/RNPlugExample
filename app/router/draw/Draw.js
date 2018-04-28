@@ -36,14 +36,6 @@ DrawNav.router.getStateForAction = (action, state) => {
     return defaultGetStateForAction(action, state);
 };
 
+//使用setDrawNavigator会导致navigation 只能在此子路由栈生效
 
- class Draw extends React.Component {
-    render(){
-        return(
-            <DrawNav  ref={navigatorRef => {
-                        NavigationService.setDrawNavigator(navigatorRef)}}></DrawNav>
-        )
-    }
-};
-
-export default Draw;
+export default DrawNav;

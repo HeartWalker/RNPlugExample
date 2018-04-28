@@ -1,5 +1,6 @@
 /**
 * 获取固定导航器
+ *
 */
 import { NavigationActions } from 'react-navigation';
 
@@ -11,6 +12,7 @@ function setTopLevelNavigator(navigatorRef) {
     _navigatorTop = navigatorRef;
 }
 
+//todo side侧边内调用时左滑返回tab而不是draw
 function navigateTop(routeName, params) {
     _navigatorTop.dispatch(
         NavigationActions.navigate({
@@ -18,6 +20,10 @@ function navigateTop(routeName, params) {
             routeName,
             params,
         })
+    );
+    // 调用的同时重置side侧边路由到最顶级
+    _navigatorSide && _navigatorSide.dispatch(
+        NavigationActions.popToTop()
     );
 }
 
@@ -35,7 +41,7 @@ function navigateDraw(routeName, params) {
             params,
         })
     );
-    //_navigatorSide && _navigatorSide.popToTop();
+
 }
 
 

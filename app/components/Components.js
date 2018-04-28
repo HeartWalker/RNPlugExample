@@ -17,6 +17,9 @@ export default class Components extends Component<Props> {
                 <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Test')}}>
                     <Text>go to test</Text>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Plug')}}>
+                    <Text>go to plug</Text>
+                </TouchableOpacity>
             </View>
         );
     }

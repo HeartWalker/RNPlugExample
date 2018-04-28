@@ -43,10 +43,9 @@ const Stack = StackNavigator(
         })
     },
 );
-console.log(1)
-const defaultGetStateForAction = Stack.router.getStateForAction;
 
-let flag = true;
+
+const defaultGetStateForAction = Stack.router.getStateForAction;
 Stack.router.getStateForAction = (action, state) => {
   /*  if (state && state.index > 3 && action.type === 'Navigation/NAVIGATE') {
         const routes = [

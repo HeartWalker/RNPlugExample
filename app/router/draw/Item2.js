@@ -12,7 +12,7 @@ import NavigationService from '../NavigationService';
 class Item2 extends Component<Props> {
     render() {
         return (
-            <View style={{flex:1}}>
+            <View style = {{flex:1}}>
                 <Text onPress={()=>{this.props.navigation.navigate('Item1')
 
                 }}>{'Item2'},go to Item1</Text>
@@ -23,20 +23,20 @@ class Item2 extends Component<Props> {
                 <Text onPress={()=>NavigationService.navigateTop('MyTest')}>
                     go to stack screen :Stack MyTest
                 </Text>
-                <Text onPress={()=>NavigationService.navigateDraw('Main')}>
+                <Text onPress={()=>NavigationService.navigateTop('Main')}>
                     go to tab screen: Draw main
                 </Text>
-                <Text onPress={()=>{NavigationService.navigateDraw('DrawerToggle')}}>
+                <Text onPress={()=>{NavigationService.navigateTop('DrawerToggle')}}>
                     go to tab screen: Draw toggle
                 </Text>
 
-                <Text onPress={()=>{NavigationService.navigateDraw('Plug')}}>
+                <Text onPress={()=>{NavigationService.navigateTop('Plug')}}>
                     go to tab screen: Plug
                 </Text>
-                <Text onPress={()=>NavigationService.navigateDraw('My')}>
+                <Text onPress={()=>NavigationService.navigateTop('My')}>
                     go to tab screen: My
                 </Text>
-                <Text onPress={()=>NavigationService.navigateDraw('Component')}>
+                <Text onPress={()=>NavigationService.navigateTop('Component')}>
                     go to tab screen: Component
                 </Text>
 

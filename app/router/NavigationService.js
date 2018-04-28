@@ -18,9 +18,19 @@ function navigateTop(routeName, params) {
         NavigationActions.navigate({
             type: NavigationActions.NAVIGATE,
             routeName,
-            params,
+            params:{...params,TOTOP:true},
         })
     );
+
+  /*  _navigatorTop.dispatch(
+        NavigationActions.reset({
+            index: 1,
+            actions: [NavigationActions.navigate({ routeName: 'Main' }),NavigationActions.navigate({  type: NavigationActions.NAVIGATE,
+                routeName,
+                params, })],
+        })
+    );
+*/
     // 调用的同时重置side侧边路由到最顶级
     _navigatorSide && _navigatorSide.dispatch(
         NavigationActions.popToTop()

@@ -9,10 +9,22 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Alert
 } from 'react-native';
 
 import Router from './app/router/Router';
+
+
+/*if(!__DEV__){
+    ErrorUtils.setGlobalHandler((e)=>{
+      Alert.alert("异常",JSON.stringify(e))
+      });
+}*/
+ErrorUtils.setGlobalHandler((e)=>{
+    Alert.alert("异常",JSON.stringify(e));
+});
+
 type Props = {};
 export default class App extends Component<Props> {
   render() {

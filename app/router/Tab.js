@@ -14,7 +14,7 @@ import {
 
 import { TabNavigator, TabBarBottom ,StackNavigator} from 'react-navigation';
 
-import NavigationService from './NavigationService';//获得顶级路由----------------------
+
 
 import Components from '../components/Components';
 import My from '../my/My';
@@ -29,7 +29,7 @@ function Icon(props) {
     )
 }
 
-const Taber =  TabNavigator(
+const Tab =  TabNavigator(
     {
         Component: {
             screen: Components,
@@ -93,12 +93,5 @@ const Taber =  TabNavigator(
 }
 )
 
-export default class Tab extends Component {
-    render(){
-        return (
-            <Taber    ref={navigatorRef => {
-          NavigationService.setTopLevelNavigator(navigatorRef);
-        }}/>
-        )
-    }
-}
+export default Tab
+

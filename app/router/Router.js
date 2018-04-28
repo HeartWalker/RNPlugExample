@@ -14,11 +14,14 @@ import {
 
 import Stack from './Stack';
 
+import NavigationService from './NavigationService';//获得顶级路由
 
 export default class Router extends Component<Props> {
     render() {
         return (
-                <Stack/>
+                <Stack  ref={navigatorRef => {
+                        NavigationService.setTopLevelNavigator(navigatorRef);
+        }}/>
         );
     }
 }

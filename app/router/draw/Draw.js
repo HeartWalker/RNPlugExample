@@ -11,10 +11,12 @@ import {ScrollView, View, Text } from 'react-native';
 import { DrawerNavigator, SafeAreaView} from 'react-navigation';
 
 import Tab from '../Tab';
+import NavigationService from '../NavigationService';
+
 import DrawContent from './DrawContent';
 
 
-const Draw = DrawerNavigator(
+const DrawNav = DrawerNavigator(
     {
         Main: {
             screen: Tab,
@@ -25,5 +27,23 @@ const Draw = DrawerNavigator(
     }
 
 );
+
+
+const defaultGetStateForAction = DrawNav.router.getStateForAction;
+DrawNav.router.getStateForAction = (action, state) => {
+
+    console.log('1111')
+    return defaultGetStateForAction(action, state);
+};
+
+
+ class Draw extends React.Component {
+    render(){
+        return(
+            <DrawNav  ref={navigatorRef => {
+                        NavigationService.setDrawNavigator(navigatorRef)}}></DrawNav>
+        )
+    }
+};
 
 export default Draw;

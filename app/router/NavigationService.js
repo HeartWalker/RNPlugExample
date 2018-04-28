@@ -1,14 +1,50 @@
-
+/**
+* 获取固定导航器
+*/
 import { NavigationActions } from 'react-navigation';
 
-let _navigator;
+let _navigatorTop;//顶级路由器 Stack 的 screens
+let _navigatorSide;//Drew 内嵌套的 stack 的 screens
+let _navigatorDraw;//tab 路由器 Draw 的 screens
 
 function setTopLevelNavigator(navigatorRef) {
-    _navigator = navigatorRef;
+    _navigatorTop = navigatorRef;
 }
 
-function navigate(routeName, params) {
-    _navigator.dispatch(
+function navigateTop(routeName, params) {
+    _navigatorTop.dispatch(
+        NavigationActions.navigate({
+            type: NavigationActions.NAVIGATE,
+            routeName,
+            params,
+        })
+    );
+}
+
+
+
+function setDrawNavigator(navigatorRef) {
+    _navigatorDraw = navigatorRef;
+}
+
+function navigateDraw(routeName, params) {
+    _navigatorDraw.dispatch(
+        NavigationActions.navigate({
+            type: NavigationActions.NAVIGATE,
+            routeName,
+            params,
+        })
+    );
+    //_navigatorSide && _navigatorSide.popToTop();
+}
+
+
+function setSideNavigator(navigatorRef) {
+    _navigatorSide = navigatorRef;
+}
+
+function navigateSide(routeName, params) {
+    _navigatorSide.dispatch(
         NavigationActions.navigate({
             type: NavigationActions.NAVIGATE,
             routeName,
@@ -20,6 +56,10 @@ function navigate(routeName, params) {
 // add other navigation functions that you need and export them
 
 export default {
-    navigate,
+    navigateTop,
     setTopLevelNavigator,
+    navigateSide,
+    setSideNavigator,
+    setDrawNavigator,
+    navigateDraw
 };

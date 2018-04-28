@@ -12,6 +12,7 @@ export default class MyTest extends Component<Props> {
     render() {
         return (
             <View>
+                <Text>My</Text>
                 <Text>{'Stack'}</Text>
             </View>
         );

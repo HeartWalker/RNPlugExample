@@ -36,7 +36,7 @@ const defaultGetStateForAction = DrawStack.router.getStateForAction;
 
 DrawStack.router.getStateForAction = (action, state) => {
 
-    console.log('1111')
+    //console.log('1111')
     return defaultGetStateForAction(action, state);
 };
 

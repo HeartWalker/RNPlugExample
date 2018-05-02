@@ -97,7 +97,7 @@ Stack.router.getStateForAction = (action, state) => {
 
     }*/
 
-    console.log('1111')
+    //console.log('1111')
     return defaultGetStateForAction(action, state);
 };
 export default Stack;

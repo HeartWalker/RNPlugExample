@@ -32,7 +32,7 @@ const DrawNav = DrawerNavigator(
 const defaultGetStateForAction = DrawNav.router.getStateForAction;
 DrawNav.router.getStateForAction = (action, state) => {
 
-    console.log('1111')
+    //console.log('1111')
     return defaultGetStateForAction(action, state);
 };
 

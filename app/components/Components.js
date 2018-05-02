@@ -7,19 +7,18 @@ import {
     TouchableOpacity,
 } from 'react-native';
 
-
+import TouchAble from '../common/TouchAble';
 
 export default class Components extends Component<Props> {
     render() {
         return (
             <View>
                 <Text>component</Text>
-                <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Test')}}>
-                    <Text>go to test</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Plug')}}>
-                    <Text>go to plug</Text>
-                </TouchableOpacity>
+                <TouchAble screen={'Test'}/>
+
+                <TouchAble screen={'Plug'}/>
+
+                <TouchAble screen={'FlatListExample'}/>
             </View>
         );
     }

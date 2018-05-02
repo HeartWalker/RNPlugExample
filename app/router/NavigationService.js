@@ -13,15 +13,28 @@ function setTopLevelNavigator(navigatorRef) {
 }
 
 //todo side侧边内调用时左滑返回tab而不是draw
-function navigateTop(routeName, params) {
+function navigateTop(routeName, params, tabRoute='My') {
+
+
+    if(!/Drawer/gi.test(routeName)){
+
+    _navigatorTop.dispatch(
+        NavigationActions.navigate({
+            type: NavigationActions.NAVIGATE,
+            routeName:tabRoute ,
+            params:{},
+        })
+        )
+    }
+
+    //定时器减缓
     _navigatorTop.dispatch(
         NavigationActions.navigate({
             type: NavigationActions.NAVIGATE,
             routeName,
-            params:{...params,TOTOP:true},
+            params:{...params},
         })
-    );
-
+    )
   /*  _navigatorTop.dispatch(
         NavigationActions.reset({
             index: 1,

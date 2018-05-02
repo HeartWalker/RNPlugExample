@@ -17,6 +17,7 @@ import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/Car
 
 import Draw from './draw/Draw';
 import Test from '../components/Test';
+import FlatListExample from '../components/FlatListExample';
 import MyTest from '../my/MyTest';
 
 const Stack = StackNavigator(
@@ -29,6 +30,9 @@ const Stack = StackNavigator(
         },
         MyTest: {
             screen: MyTest
+        },
+        FlatListExample: {
+            screen: FlatListExample
         }
     },
     {

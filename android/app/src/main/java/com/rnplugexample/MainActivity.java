@@ -1,5 +1,9 @@
 package com.rnplugexample;
 
+import android.os.Bundle;
+
+import org.devio.rn.splashscreen.SplashScreen;
+
 import com.facebook.react.ReactActivity;
 
 public class MainActivity extends ReactActivity {
@@ -12,4 +16,15 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "RNPlugExample";
     }
+
+     @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            try{
+                 SplashScreen.show(this);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+            super.onCreate(savedInstanceState);
+        }
 }

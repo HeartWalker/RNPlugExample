@@ -25,6 +25,16 @@ ErrorUtils.setGlobalHandler((e)=>{
     Alert.alert("异常",JSON.stringify(e));
 });
 
+if (!__DEV__) {
+    global.console = {
+        info: () => {},
+        log: () => {},
+        warn: () => {},
+        debug: () => {},
+        error: () => {},
+    };
+}
+
 type Props = {};
 export default class App extends Component<Props> {
   render() {

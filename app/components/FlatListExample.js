@@ -16,10 +16,10 @@ export default class FlatListExample extends Component<Props> {
             super(props);
             this.state = {
                 data:[],
+                loading: false
             }
 
             this.num = 1;
-            this.addData = true;
 
         }
 
@@ -32,7 +32,6 @@ export default class FlatListExample extends Component<Props> {
         fetch('http://gank.io/api/data/福利/10/' + num)
             .then(response =>response.json())
             .then( (responseData) => {
-                    console.log( responseData);
                     console.log( '---');
                     if(refresh){
                         this.setState({
@@ -43,13 +42,17 @@ export default class FlatListExample extends Component<Props> {
                             data: this.state.data.concat(responseData.results)
                         });
                     }
-                    this.addData = true;
+
 
                 },
                 (responseData) => {
+
                     console.log(responseData);
                 })
             .catch(e => console.log(e))
+            .finally(()=>{
+                this.setState({loading:false});
+              })
     }
 
     _refreshing = () => {
@@ -58,10 +61,9 @@ export default class FlatListExample extends Component<Props> {
 
     }
     _onEndReached = () => {
-
-        if(this.addData){
+        if(!this.state.loading){
             this._fetch( ++this.num );
-            this.addData = false;
+            this.setState({loading:true});
 
         }
     }
@@ -77,13 +79,24 @@ export default class FlatListExample extends Component<Props> {
         )
     }
 
+    _renderFooter = ()=> {
+        if(this.state.loading){
+            return (
+                <Text style={{paddingVertical:10,textAlign:'center'}}>
+                    loading
+                </Text>
+            )
+        }else {
+            return null
+        }
+    }
     render() {
-        console.log(this.state.data)
         return (
             <View style={{flex:1}}>
                 <Head title={'FlatList'}/>
                 <FlatList
                     style={{}}
+                    ListFooterComponent={this._renderFooter}
                     data={this.state.data}
                     keyExtractor={(item, index) => item._id}
                     renderItem={this._renderItem}

@@ -77,7 +77,7 @@ export default class FlatListExample extends Component<Props> {
                 <Text>
                     {item.who} {index}
                 </Text>
-                <TouchableOpacity   onPress={() => {this.props.navigation.navigate('ShowImg',{uri: item.url})
+                <TouchableOpacity   onPress={() => {this.props.navigation.navigate('ShowImg',{uri: item.url, transition: 'forInitial' })
                 }}>
                     <BgImg style={styles.itemImg} source={{uri: item.url}}
                          ></BgImg>

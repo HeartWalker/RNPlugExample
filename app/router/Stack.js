@@ -8,7 +8,9 @@ import {
     Platform,
     StyleSheet,
     Text,
-    View
+    View,
+    Easing,
+    Animated,
 } from 'react-native';
 
 import {StackNavigator,NavigationActions } from 'react-navigation';
@@ -42,7 +44,8 @@ const Stack = StackNavigator(
             screen: ScrollViewExample
         },
         ShowImg: {
-            screen: ShowImg
+            screen: ShowImg,
+
         },
 
     },
@@ -53,12 +56,33 @@ const Stack = StackNavigator(
         navigationOptions: {
             gesturesEnabled: true,//允许右划返回
         },
-        transitionConfig: () => ({
-            screenInterpolator: CardStackStyleInterpolator.forHorizontal,//实现android左右跳转
-        })
-    },
-);
+        transitionConfig: (sceneProps) => {
+            const { scene } = sceneProps;
+            const { route } = scene;
+            const params = route.params || {};
+            const transition = params.transition || 'forHorizontal';
+            let duration = 250;
+            if(transition === 'forInitial'){
+                duration = 0
+            }
+            return {
+                transitionSpec: {
+                    duration,
+                    easing: Easing.out(Easing.poly(4)),
+                    timing: Animated.timing,
+                },
 
+
+
+                screenInterpolator: CardStackStyleInterpolator.forHorizontal,
+            }
+        },
+
+        //screenInterpolator: CardStackStyleInterpolator.forHorizontal,//实现android左右跳转
+
+},
+);
+//forInitial
 
 const defaultGetStateForAction = Stack.router.getStateForAction;
 Stack.router.getStateForAction = (action, state) => {

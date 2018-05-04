@@ -7,10 +7,13 @@ import {
     TouchableOpacity,
     FlatList,
     Image,
-
+    Alert,
 } from 'react-native';
 
 import Head from '../common/Head';
+import BgImg from '../my/BgImg';
+
+
 export default class FlatListExample extends Component<Props> {
         constructor(props){
             super(props);
@@ -74,7 +77,12 @@ export default class FlatListExample extends Component<Props> {
                 <Text>
                     {item.who} {index}
                 </Text>
-                <Image style={styles.itemImg} source={{uri: item.url}}/>
+                <TouchableOpacity   onPress={() => {this.props.navigation.navigate('ShowImg',{uri: item.url})
+                }}>
+                    <BgImg style={styles.itemImg} source={{uri: item.url}}
+                         ></BgImg>
+                </TouchableOpacity>
+
             </View>
         )
     }
@@ -112,5 +120,5 @@ export default class FlatListExample extends Component<Props> {
 
 const styles = StyleSheet.create({
     item:{},
-    itemImg:{height:100,width:150,resizeMode:'contain'},
+    itemImg:{height:100,width:150,},
 })

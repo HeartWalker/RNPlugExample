@@ -20,6 +20,8 @@ import Test from '../components/Test';
 import FlatListExample from '../components/FlatListExample';
 import ScrollViewExample from '../components/ScrollViewExample';
 
+import ShowImg from '../my/ShowImg';
+
 import MyTest from '../my/MyTest';
 
 const Stack = StackNavigator(
@@ -38,6 +40,9 @@ const Stack = StackNavigator(
         },
         ScrollViewExample: {
             screen: ScrollViewExample
+        },
+        ShowImg: {
+            screen: ShowImg
         },
 
     },

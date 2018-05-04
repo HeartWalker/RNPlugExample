@@ -17,25 +17,9 @@ import SplashScreen from 'react-native-splash-screen'
 
 import Router from './app/router/Router';
 
+import './app/Pre';
 
-/*if(!__DEV__){
-    ErrorUtils.setGlobalHandler((e)=>{
-      Alert.alert("异常",JSON.stringify(e))
-      });
-}*/
-ErrorUtils.setGlobalHandler((e)=>{
-    Alert.alert("异常",JSON.stringify(e));
-});
 
-if (!__DEV__) {
-    global.console = {
-        info: () => {},
-        log: () => {},
-        warn: () => {},
-        debug: () => {},
-        error: () => {},
-    };
-}
 
 type Props = {};
 export default class App extends Component<Props> {

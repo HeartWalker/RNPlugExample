@@ -19,6 +19,7 @@ export default class Components extends Component<Props> {
                 <TouchAble screen={'Plug'}/>
 
                 <TouchAble screen={'FlatListExample'}/>
+                <TouchAble screen={'ScrollViewExample'}/>
             </View>
         );
     }

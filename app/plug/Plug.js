@@ -12,7 +12,7 @@ export default class Plug extends Component<Props> {
     render() {
         return (
             <View style={{flex:1,}}>
-                <Text>plug</Text>
+                <Text style={{color:"blue"}}>plug</Text>
             </View>
         );
     }

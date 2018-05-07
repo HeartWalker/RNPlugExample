@@ -22,7 +22,7 @@ export default class BgImg extends Component<Props> {
                 source={require('./images/bg.png')}
 
             >
-                <Image  {...this.props}  />
+                <Image style={{resizeMode:'contain'}} {...this.props}  />
             </ImageBackground>
         );
     }

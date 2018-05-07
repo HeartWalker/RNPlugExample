@@ -12,7 +12,7 @@ import {
 
 import Head from '../common/Head';
 import BgImg from '../my/BgImg';
-
+import CommonStyles from '../common/CommonStyles';
 
 export default class FlatListExample extends Component<Props> {
         constructor(props){
@@ -71,15 +71,20 @@ export default class FlatListExample extends Component<Props> {
         }
     }
 
+    _press = (e,item) => {
+        //let left = e.nativeEvent.pageX;
+        //let top = e.nativeEvent.pageY;
+        this.props.navigation.navigate('ShowImg',{uri: item.url, transition: 'forInitial' });
+    }
     _renderItem = ({item, index}) => {
         return (
             <View style={styles.item}>
                 <Text>
                     {item.who} {index}
                 </Text>
-                <TouchableOpacity   onPress={() => {this.props.navigation.navigate('ShowImg',{uri: item.url, transition: 'forInitial' })
-                }}>
-                    <BgImg style={styles.itemImg} source={{uri: item.url}}
+                <TouchableOpacity   onPress={(e) => this._press(e,item)}
+                >
+                    <BgImg style={[CommonStyles.itemImg]} source={{uri: item.url}}
                          ></BgImg>
                 </TouchableOpacity>
 
@@ -120,5 +125,4 @@ export default class FlatListExample extends Component<Props> {
 
 const styles = StyleSheet.create({
     item:{},
-    itemImg:{height:100,width:150,},
 })

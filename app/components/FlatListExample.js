@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+    ReactNative,
     Platform,
     StyleSheet,
     Text,
@@ -8,6 +9,7 @@ import {
     FlatList,
     Image,
     Alert,
+    UIManager,
 } from 'react-native';
 
 import Head from '../common/Head';
@@ -71,10 +73,9 @@ export default class FlatListExample extends Component<Props> {
         }
     }
 
-    _press = (e,item) => {
-        //let left = e.nativeEvent.pageX;
-        //let top = e.nativeEvent.pageY;
-        this.props.navigation.navigate('ShowImg',{uri: item.url, transition: 'forInitial' });
+    _press = (item ,layout) => {
+
+        this.props.navigation.navigate('ShowImg',{uri: item.url, transition: 'forInitial',layout});
     }
     _renderItem = ({item, index}) => {
         return (
@@ -82,11 +83,9 @@ export default class FlatListExample extends Component<Props> {
                 <Text>
                     {item.who} {index}
                 </Text>
-                <TouchableOpacity   onPress={(e) => this._press(e,item)}
-                >
-                    <BgImg style={[CommonStyles.itemImg]} source={{uri: item.url}}
+
+                    <BgImg style={[CommonStyles.itemImg]} uri={item.url} press={(ref) => this._press(item,ref)}
                          ></BgImg>
-                </TouchableOpacity>
 
             </View>
         )

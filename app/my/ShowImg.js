@@ -51,10 +51,11 @@ export default class ShowImg extends Component<Props> {
         return(
            <View style={styles.layoutContain}>
 
-{/*
+
 
                       <Animated.Image source={{uri} }
                              style={[CommonStyles.itemImg,{
+                                 resizeMode:'contain',
                                  position:'absolute',
                                   left: this.state.animateValue.interpolate({
                                  inputRange: [0, 1],
@@ -76,9 +77,9 @@ export default class ShowImg extends Component<Props> {
                                  ],
                             }]}
                       />
-*/}
 
-               <Animated.View
+
+            {/*   <Animated.View
                       style={[CommonStyles.itemImg,{
                                  position:'absolute',
                                  backgroundColor:"orange",
@@ -101,14 +102,14 @@ export default class ShowImg extends Component<Props> {
 
                                  ],
                             }]}
-               />
+               />*/}
            </View>
         )
     }
     render() {
         return (
             <View>
-                <Head title={'ShowImg'}/>
+                {/*<Head title={'ShowImg'}/>*/}
                 {/*<BgImg source={{uri: this.props.navigation.state.params.uri}} style={styles.img}/>*/}
                 {this.renderLayout()}
             </View>

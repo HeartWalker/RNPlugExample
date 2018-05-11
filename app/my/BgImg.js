@@ -12,6 +12,7 @@ import {
     ImageBackground,
     Alert,
     TouchableOpacity,
+    TouchableWithoutFeedback,
     UIManager,
     ReactNative,
     findNodeHandle
@@ -40,14 +41,16 @@ export default class BgImg extends Component<Props> {
     render() {
 
         return (
-            <TouchableOpacity onPress = {this._press} >
-                <ImageBackground
-                                 resizeMode={'center'} style={this.props.style}
-                                 source={require('./images/bg.png')}
-                >
-                    <Image  ref = {r => this._bgImg = r} style={[{resizeMode:'contain'},this.props.style]} source={{uri:this.props.uri}}/>
-                </ImageBackground>
-            </TouchableOpacity>
+            <TouchableWithoutFeedback onPress = {this._press} >
+               <View>
+                   <ImageBackground
+                       resizeMode={'center'} style={this.props.style}
+                       source={require('./images/bg.png')}
+                   >
+                       <Image  ref = {r => this._bgImg = r} style={[{resizeMode:'contain'},this.props.style]} source={{uri:this.props.uri}}/>
+                   </ImageBackground>
+               </View>
+            </TouchableWithoutFeedback>
         );
     }
 }

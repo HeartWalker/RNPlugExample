@@ -13,9 +13,9 @@ import {
     Animated,
 } from 'react-native';
 
-import {StackNavigator,NavigationActions } from 'react-navigation';
+import {createStackNavigator,NavigationActions } from 'react-navigation';
 
-import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
+//import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
 
 import Draw from './draw/Draw';
 import Test from '../components/Test';
@@ -26,7 +26,7 @@ import ShowImg from '../my/ShowImg';
 
 import MyTest from '../my/MyTest';
 
-const Stack = StackNavigator(
+const Stack = createStackNavigator(
     {
         Main: {
             screen: Draw
@@ -74,7 +74,7 @@ const Stack = StackNavigator(
 
 
 
-                screenInterpolator: CardStackStyleInterpolator.forHorizontal,
+                //screenInterpolator: CardStackStyleInterpolator.forHorizontal,
             }
         },
 

@@ -12,7 +12,7 @@ import {
     View
 } from 'react-native';
 
-import { TabNavigator, TabBarBottom ,StackNavigator} from 'react-navigation';
+import { createBottomTabNavigator, StackNavigator } from 'react-navigation';
 
 
 
@@ -29,7 +29,7 @@ function Icon(props) {
     )
 }
 
-const Tab =  TabNavigator(
+const Tab =  createBottomTabNavigator(
     {
         Component: {
             screen: Components,

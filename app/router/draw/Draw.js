@@ -8,15 +8,15 @@
 
 import React from 'react';
 import {ScrollView, View, Text } from 'react-native';
-import { DrawerNavigator, SafeAreaView} from 'react-navigation';
+import { createDrawerNavigator , SafeAreaView} from 'react-navigation';
 
 import Tab from '../Tab';
-import NavigationService from '../NavigationService';
+
 
 import DrawContent from './DrawContent';
 
 
-const DrawNav = DrawerNavigator(
+const DrawNav = createDrawerNavigator (
     {
         Main: {
             screen: Tab,

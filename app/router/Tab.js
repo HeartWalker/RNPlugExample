@@ -12,7 +12,7 @@ import {
     View
 } from 'react-native';
 
-import { createBottomTabNavigator, StackNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createAppContainer ,} from 'react-navigation';
 
 
 
@@ -93,5 +93,5 @@ const Tab =  createBottomTabNavigator(
 }
 )
 
-export default Tab
+export default createAppContainer(Tab)
 

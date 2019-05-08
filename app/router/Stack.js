@@ -13,7 +13,7 @@ import {
     Animated,
 } from 'react-native';
 
-import {createStackNavigator,NavigationActions } from 'react-navigation';
+import {createStackNavigator,createAppContainer } from 'react-navigation';
 
 //import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
 
@@ -135,4 +135,4 @@ Stack.router.getStateForAction = (action, state) => {
     //console.log('1111')
     return defaultGetStateForAction(action, state);
 };
-export default Stack;
+export default createAppContainer(Stack);

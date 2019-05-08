@@ -8,13 +8,13 @@
 
 import React ,{Component} from 'react';
 import {ScrollView, View, Text } from 'react-native';
-import { createStackNavigator, SafeAreaView} from 'react-navigation';
+import { createStackNavigator, SafeAreaView,createAppContainer} from 'react-navigation';
 //import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
 import NavigationService from '../NavigationService';
 
 import Item1 from './Item1';
 import Item2 from './Item2';
-const DrawStack = createStackNavigator(
+const DrawStack = createAppContainer(createStackNavigator(
     {
         Item1: {screen: Item1},
         Item2: {screen: Item2},
@@ -29,7 +29,7 @@ const DrawStack = createStackNavigator(
             //screenInterpolator: CardStackStyleInterpolator.forHorizontal,//实现android左右跳转
         })
     }
-)
+))
 
 const defaultGetStateForAction = DrawStack.router.getStateForAction;
 

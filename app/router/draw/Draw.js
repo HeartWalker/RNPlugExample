@@ -8,7 +8,7 @@
 
 import React from 'react';
 import {ScrollView, View, Text } from 'react-native';
-import { createDrawerNavigator, SafeAreaView} from 'react-navigation';
+import { createDrawerNavigator, createAppContainer} from 'react-navigation';
 
 import Tab from '../Tab';
 import NavigationService from '../NavigationService';
@@ -38,4 +38,4 @@ DrawNav.router.getStateForAction = (action, state) => {
 
 //使用setDrawNavigator会导致navigation 只能在此子路由栈生效
 
-export default DrawNav;
+export default createAppContainer(DrawNav);

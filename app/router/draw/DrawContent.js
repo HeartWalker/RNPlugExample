@@ -8,13 +8,13 @@
 
 import React ,{Component} from 'react';
 import {ScrollView, View, Text } from 'react-native';
-import { StackNavigator, SafeAreaView} from 'react-navigation';
-import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
+import { createStackNavigator, SafeAreaView} from 'react-navigation';
+//import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
 import NavigationService from '../NavigationService';
 
 import Item1 from './Item1';
 import Item2 from './Item2';
-const DrawStack = StackNavigator(
+const DrawStack = createStackNavigator(
     {
         Item1: {screen: Item1},
         Item2: {screen: Item2},
@@ -26,7 +26,7 @@ const DrawStack = StackNavigator(
             gesturesEnabled: true,//允许右划返回
         },
         transitionConfig: () => ({
-            screenInterpolator: CardStackStyleInterpolator.forHorizontal,//实现android左右跳转
+            //screenInterpolator: CardStackStyleInterpolator.forHorizontal,//实现android左右跳转
         })
     }
 )

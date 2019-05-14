@@ -9,7 +9,7 @@ import {
 
 import TouchAble from '../common/TouchAble';
 
-export default class Components extends Component<Props> {
+export default class Components extends Component {
     render() {
         return (
             <View>

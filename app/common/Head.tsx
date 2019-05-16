@@ -8,9 +8,11 @@ import {
 } from 'react-native';
 
 import PropTypes from 'prop-types';
-import { withNavigation } from 'react-navigation';
-
-class Head extends Component {
+import { withNavigation, NavigationInjectedProps } from 'react-navigation';
+interface Props extends NavigationInjectedProps{
+    title: string;
+  }
+class Head extends Component<Props> {
     render() {
         return (
             <View style={styles.container}>
@@ -28,10 +30,6 @@ class Head extends Component {
 
 export default withNavigation(Head);
 
-
-Head.propTypes = {
-    title: PropTypes.string.isRequired,
-}
 
 const styles = StyleSheet.create({
     container:{height:44,alignItems:'center',paddingHorizontal:15,

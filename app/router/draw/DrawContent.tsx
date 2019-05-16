@@ -8,7 +8,7 @@
 
 import React ,{Component} from 'react';
 import {ScrollView, View, Text } from 'react-native';
-import { createStackNavigator, SafeAreaView,createAppContainer} from 'react-navigation';
+import { createStackNavigator, SafeAreaView,createAppContainer, NavigationInjectedProps, DrawerItemsProps} from 'react-navigation';
 //import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
 import NavigationService from '../NavigationService';
 
@@ -55,7 +55,9 @@ const CustomDrawerContentComponent = (props) => (
 
 export default CustomDrawerContentComponent;*/
 //DrawStack 外使用 ScrollView 会导致 其消失失效 ,SafeAreaView 的 flex:1 style也是必要的
-class CustomDrawerContentComponent extends Component {
+interface Props extends DrawerItemsProps {
+  }
+class CustomDrawerContentComponent extends Component<Props> {
 
     render(){
         return (

@@ -5,9 +5,12 @@ import {
     Text,
     View
 } from 'react-native';
+import { NavigationInjectedProps } from 'react-navigation';
 
 
-
+interface Props extends NavigationInjectedProps {
+    screen: string;
+  }
 export default class Item1 extends Component<Props> {
     render() {
         return (

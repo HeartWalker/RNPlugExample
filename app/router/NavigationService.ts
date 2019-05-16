@@ -2,25 +2,25 @@
 * 获取固定导航器
  *
 */
-import { NavigationActions } from 'react-navigation';
+import { NavigationActions,StackActions,  } from 'react-navigation';
 
-let _navigatorTop;//顶级路由器 Stack 的 screens
-let _navigatorSide;//Drew 内嵌套的 stack 的 screens
-let _navigatorDraw;//tab 路由器 Draw 的 screens
+let _navigatorTop:any;//顶级路由器 Stack 的 screens
+let _navigatorSide:any;//Drew 内嵌套的 stack 的 screens
+let _navigatorDraw:any;//tab 路由器 Draw 的 screens
 
-function setTopLevelNavigator(navigatorRef) {
+function setTopLevelNavigator(navigatorRef:any) {
     _navigatorTop = navigatorRef;
 }
 
 //todo side侧边内调用时左滑返回tab而不是draw
-function navigateTop(routeName, params, tabRoute='My') {
+function navigateTop(routeName:string, params={}, tabRoute='My') {
 
 
     if(!/Drawer/gi.test(routeName)){
 
     _navigatorTop.dispatch(
         NavigationActions.navigate({
-            type: NavigationActions.NAVIGATE,
+            //type: NavigationActions.NAVIGATE,
             routeName:tabRoute ,
             params:{},
         })
@@ -30,7 +30,7 @@ function navigateTop(routeName, params, tabRoute='My') {
     //定时器减缓
     _navigatorTop.dispatch(
         NavigationActions.navigate({
-            type: NavigationActions.NAVIGATE,
+            //type: NavigationActions.NAVIGATE,
             routeName,
             params:{...params},
         })
@@ -46,20 +46,20 @@ function navigateTop(routeName, params, tabRoute='My') {
 */
     // 调用的同时重置side侧边路由到最顶级
     _navigatorSide && _navigatorSide.dispatch(
-        NavigationActions.popToTop()
+        StackActions.popToTop({})
     );
 }
 
 
 
-function setDrawNavigator(navigatorRef) {
+function setDrawNavigator(navigatorRef:any) {
     _navigatorDraw = navigatorRef;
 }
 
-function navigateDraw(routeName, params) {
+function navigateDraw(routeName:string, params?:object) {
     _navigatorDraw.dispatch(
         NavigationActions.navigate({
-            type: NavigationActions.NAVIGATE,
+            //type: NavigationActions.NAVIGATE,
             routeName,
             params,
         })
@@ -68,14 +68,14 @@ function navigateDraw(routeName, params) {
 }
 
 
-function setSideNavigator(navigatorRef) {
+function setSideNavigator(navigatorRef:any) {
     _navigatorSide = navigatorRef;
 }
 
-function navigateSide(routeName, params) {
+function navigateSide(routeName:string, params?:object) {
     _navigatorSide.dispatch(
         NavigationActions.navigate({
-            type: NavigationActions.NAVIGATE,
+            //type: NavigationActions.NAVIGATE,
             routeName,
             params,
         })

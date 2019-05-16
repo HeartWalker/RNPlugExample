@@ -14,20 +14,23 @@ import {
     TouchableOpacity,
     TouchableWithoutFeedback,
     UIManager,
-    ReactNative,
     findNodeHandle
 } from 'react-native';
 
-import PropTypes from 'prop-types';
+interface Props  {
+    press: Function;
+    style:object;
+    uri: string;
+}
 
 export default class BgImg extends Component<Props> {
-    constructor(props){
+    private _bgImg:any;
+    constructor(props:Props){
         super(props);
-        this._bgImg = null;
     }
     _press = () => {
 
-        UIManager.measure(findNodeHandle(this._bgImg), (x, y, width, height, pageX, pageY) => {
+        UIManager.measure(Number(findNodeHandle(this._bgImg)), (x:number, y:number, width:number, height:number, pageX:number, pageY:number) => {
             let layout = {
                 left: pageX,
                 top: pageY,
@@ -55,14 +58,5 @@ export default class BgImg extends Component<Props> {
     }
 }
 
-BgImg.defaultProps = {
-    //mode: 'contain',
-    style: {},
 
-}
-
-BgImg.propTypes = {
-    //mode: PropTypes.oneOf(['contain', 'cover', 'stretch', 'center']),
-
-}
 

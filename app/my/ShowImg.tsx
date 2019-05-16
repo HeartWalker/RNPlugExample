@@ -17,17 +17,22 @@ import {
 
 import Head from '../common/Head';
 import CommonStyles from '../common/CommonStyles';
+import { NavigationInjectedProps } from 'react-navigation';
 
 const {height, width} = Dimensions.get('window');
 
-let imgWidth = StyleSheet.flatten(CommonStyles.itemImg).width;
-let imgHeight = StyleSheet.flatten(CommonStyles.itemImg).height;
+let imgWidth = Number(StyleSheet.flatten(CommonStyles.itemImg).width);
+let imgHeight = Number(StyleSheet.flatten(CommonStyles.itemImg).height);
 let imgTargetWidth = width;
 let imgTargetHeight = imgTargetWidth * imgHeight / imgWidth;
 let toVsFromScaleX = imgTargetWidth / imgWidth;
 let toVsFromScaleY = imgTargetHeight / imgHeight;
-export default class ShowImg extends Component<Props> {
-    constructor(props){
+
+interface Props extends NavigationInjectedProps {
+    screen: string;
+  }
+export default class ShowImg extends Component<Props,any> {
+    constructor(props:Props){
         super(props);
         this.state = {
             animateValue:  new Animated.Value(0),
@@ -47,7 +52,7 @@ export default class ShowImg extends Component<Props> {
         })
     }
     renderLayout = () => {
-        let {uri, layout} = this.props.navigation.state.params;
+        let {uri, layout}:any = this.props.navigation.state.params;
         return(
            <View style={styles.layoutContain}>
 

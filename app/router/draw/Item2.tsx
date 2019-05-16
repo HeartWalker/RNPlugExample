@@ -7,8 +7,11 @@ import {
 } from 'react-native';
 
 import NavigationService from '../NavigationService';
+import { NavigationInjectedProps } from 'react-navigation';
 
-
+interface Props extends NavigationInjectedProps {
+    screen: string;
+  }
 class Item2 extends Component<Props> {
     render() {
         return (

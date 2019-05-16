@@ -12,10 +12,13 @@ import {
     Animated,
 
 } from 'react-native';
+import { NavigationInjectedProps } from 'react-navigation';
 
-
-export default class ScrollViewExample extends Component{
-    constructor(props){
+interface Props extends NavigationInjectedProps {
+    screen: string;
+  }
+export default class ScrollViewExample extends Component<Props,any>{
+    constructor(props:Props){
         super(props);
         this.state = {
             change:0,
@@ -25,7 +28,7 @@ export default class ScrollViewExample extends Component{
 
     componentDidMount(){
     }
-    shouldComponentUpdate(nextProps, nextState){
+    shouldComponentUpdate(nextProps:Props, nextState:any){
         return true;
     }
 

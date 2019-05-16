@@ -20,7 +20,10 @@ import Components from '../components/Components';
 import My from '../my/My';
 import Plug from '../plug/Plug';
 
-function Icon(props) {
+function Icon(props:{
+    textColor:object;
+    title:string
+}) {
     return (
         <View style={{alignItems:'center'}}>
             <View><Text style={{}}>图片</Text></View>
@@ -29,6 +32,11 @@ function Icon(props) {
     )
 }
 
+interface tabBarIconParams {
+    focused: boolean;
+    tintColor: string;
+    
+}
 const Tab =  createBottomTabNavigator(
     {
         Component: {
@@ -36,7 +44,7 @@ const Tab =  createBottomTabNavigator(
             navigationOptions: {
                 title: '官方组件',
 
-                tabBarIcon:({focused, tintColor})=>
+                tabBarIcon:({focused, tintColor}:tabBarIconParams)=>
                     <Icon textColor={focused?{color:'#fff'}:{color:'#555'}} title={'官方组件'}/>
 
 
@@ -46,7 +54,7 @@ const Tab =  createBottomTabNavigator(
                 navigationOptions: {
                     title: '自定义组件',
 
-                    tabBarIcon:({focused, tintColor})=>
+                    tabBarIcon:({focused, tintColor}:tabBarIconParams)=>
                         <Icon textColor={focused?{color:'#fff'}:{color:'#555'}} title={'自定义组件'}/>
 
 
@@ -58,7 +66,7 @@ const Tab =  createBottomTabNavigator(
                 navigationOptions: {
                     title: '社区组件',
 
-                    tabBarIcon:({focused, tintColor})=>
+                    tabBarIcon:({focused, tintColor}:tabBarIconParams)=>
                         <Icon textColor={focused?{color:'#fff'}:{color:'#555'}} title={'社区组件'}/>
 
 

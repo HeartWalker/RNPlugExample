@@ -20,7 +20,7 @@ class TouchAble extends Component<Props> {
     const { screen } = this.props;
     return (
       <View style={styles.view}>
-        <TouchableOpacity style={styles.touch}>
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate(screen)} style={styles.touch}>
           <Text>go to {screen} test</Text>
         </TouchableOpacity>
       </View>

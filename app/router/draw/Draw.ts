@@ -11,7 +11,6 @@ import {ScrollView, View, Text } from 'react-native';
 import { createDrawerNavigator, createAppContainer} from 'react-navigation';
 
 import Tab from '../Tab';
-import NavigationService from '../NavigationService';
 
 import DrawContent from './DrawContent';
 

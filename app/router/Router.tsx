@@ -16,7 +16,7 @@ import Stack from './Stack';
 
 import NavigationService from './NavigationService';//获得顶级路由
 
-export default class Router extends Component<Props> {
+export default class Router extends Component {
     render() {
         return (
                 <Stack  ref={navigatorRef => {

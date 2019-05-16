@@ -6,9 +6,12 @@ import {
     View,
     TouchableOpacity
 } from 'react-native';
+import { NavigationInjectedProps } from 'react-navigation';
 
 
-
+interface Props extends NavigationInjectedProps {
+    screen: string;
+  }
 export default class My extends Component<Props> {
     render() {
         return (

@@ -12,7 +12,7 @@ import {
     View
 } from 'react-native';
 
-import { createBottomTabNavigator, createAppContainer ,} from 'react-navigation';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
 
 

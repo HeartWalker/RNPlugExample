@@ -8,11 +8,15 @@
     "testu": "jest -u"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.133",
+    "inversify": "^5.0.1",
+    "lodash": "^4.17.11",
     "react": "16.8.3",
     "react-native": "0.59.8",
     "react-native-gesture-handler": "^1.2.1",
     "react-native-splash-screen": "^3.2.0",
-    "react-navigation": "^3.9.1"
+    "react-navigation": "^3.9.1",
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",

@@ -23,6 +23,8 @@ import './app/Pre';
 
 
 type Props = {};
+
+
 export default class App extends Component<Props> {
   componentDidMount(){
       // do anything while splash screen keeps, use await to wait for an async task.
